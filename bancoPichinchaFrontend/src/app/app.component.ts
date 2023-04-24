@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,29 +8,39 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  constructor(private router: Router, 
+              ){}
   title = 'bancoPichinchaFrontend';
 
   menu = [
     
     {
       "name": "Clientes", 
-      "icon": "person"
+      "icon": "person", 
+      "path": "clients"
     }, 
     {
       "name": "Cuentas", 
-      "icon": "credit_card"
+      "icon": "credit_card",
+      "path": "accounts"
     }, 
     {
       "name": "Movimientos", 
-      "icon": "paid"
+      "icon": "paid", 
+      "path": "transactions"
     }, 
     {
       "name": "Reportes", 
-      "icon": "monitoring"
+      "icon": "monitoring", 
+      "path": "reports"
     }
 
   
   ]; 
+
+  goHome(){
+    this.router.navigate(['/']); 
+  }
 
 }
 

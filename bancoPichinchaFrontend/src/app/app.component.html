@@ -5,6 +5,7 @@
     width="40"
     alt="Banco Logo"
     src="../assets/logo.png"
+    (click)="goHome()"
   />
 </div>
 
@@ -13,7 +14,7 @@
   <nav class="main-menu">
 
     
-    <a class="card" href="https://angular.io/tutorial" *ngFor="let item of menu">
+    <a class="card" href="{{item.path}}" *ngFor="let item of menu">
       <span class="material-symbols-outlined">
         {{item.icon}}
         </span>
@@ -26,8 +27,8 @@
 
   </nav>
 
-  <div>
-    <router-oulet></router-oulet>
+  <div class="page">
+    <router-outlet></router-outlet>
   </div>
  
 
