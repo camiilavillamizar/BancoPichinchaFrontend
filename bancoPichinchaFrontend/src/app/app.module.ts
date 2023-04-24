@@ -9,6 +9,8 @@ import { AccountsComponent } from './pages/accounts/accounts.component';
 import { TransactionsComponent } from './pages/transactions/transactions.component';
 import { ReportsComponent } from './pages/reports/reports.component';
 import { TitleSectionComponent } from './components/title-section/title-section.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TitleSectionComponent } from './components/title-section/title-section.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule,
+    FormsModule
     
   ],
   providers: [],

@@ -1,4 +1,42 @@
-<div>
-
+<div class="container">
     <app-title-section [page]="'client'"></app-title-section>
+
+    <button class="button" (click)="onCreateClient()">Crear Cliente</button>
+
+    <div class="filter-section">
+        <label>Filtrar por cualquier campo</label>
+        <input type="text" id="fname" placeholder="Filtrar.." [(ngModel)]="filter" (keyup)="onFilter()">
+    </div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Edad</th>
+            <th>DNI</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let client of filteredClients">
+            <td> {{client.name}} </td>
+            <td> {{client.gender}} </td>
+            <td> {{client.age}} </td>
+            <td> {{client.dni}} </td>
+            <td> {{client.address}} </td>
+            <td> {{client.phone}} </td>
+            <td> {{client.state}} </td>
+            <td class="actions">
+
+                <span class="material-symbols-outlined edit">
+                    edit
+                </span>
+                
+                <span class="material-symbols-outlined delete">
+                    delete
+                </span>
+
+            </td>
+          </tr>
+    </table>
 </div>
