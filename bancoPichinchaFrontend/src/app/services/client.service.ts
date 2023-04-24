@@ -17,7 +17,7 @@ export class ClientService {
     return this.http.get<Client[]>(this.baseUrl) 
   }
 
-  save(client: Client) : Observable<Client> {
+  post(client: Client) : Observable<Client> {
     return this.http.post<Client>(this.baseUrl, client); 
   }
 

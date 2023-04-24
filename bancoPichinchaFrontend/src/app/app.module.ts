@@ -10,7 +10,9 @@ import { TransactionsComponent } from './pages/transactions/transactions.compone
 import { ReportsComponent } from './pages/reports/reports.component';
 import { TitleSectionComponent } from './components/title-section/title-section.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/loading/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { FormsModule } from '@angular/forms';
     AccountsComponent,
     TransactionsComponent,
     ReportsComponent,
-    TitleSectionComponent
+    TitleSectionComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
     
   ],
   providers: [],
