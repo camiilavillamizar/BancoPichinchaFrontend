@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Client } from 'src/app/interfaces/clients.interfaces';
+import { Client } from 'src/app/interfaces/client.interfaces';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -58,8 +58,8 @@ export class ClientsComponent implements OnInit {
       c.dni.toUpperCase().includes(this.filter.toUpperCase())            ||
       c.address.toUpperCase().includes(this.filter.toUpperCase())        ||
       c.phone.toUpperCase().includes(this.filter.toUpperCase())          ||
-      (c.state == true ? "true".includes(this.filter.toUpperCase()) : null
-      || c.state == false ? "false".includes(this.filter.toUpperCase()) : null)    
+      (c.state == true ? "TRUE".includes(this.filter.toUpperCase()) : null
+      || c.state == false ? "FALSE".includes(this.filter.toUpperCase()) : null)    
       )
   }
 
@@ -78,7 +78,7 @@ export class ClientsComponent implements OnInit {
       'state': new FormControl(null, Validators.required)
     });
   }
-  onCloseDialog(){
+  onCloseSaveDialog(){
     this.saveDialog.style.display = 'none'; 
     this.formType = null; 
     this.saveDone = false; 
@@ -95,12 +95,14 @@ export class ClientsComponent implements OnInit {
       this.clients.push(response)
       this.message = "¡Cliente creado exitosamente!"
     }, error => {
+      this.saveDone = true; 
+      this.loading = false; 
       this.message = "No se ha podido crear el cliente "+ error.error; 
     })
 
   }
 
-  onEdit(client: Client){
+  onOpenEditDialog(client: Client){
 
     this.formType = 'put'
     this.createForm = new FormGroup({
@@ -117,12 +119,8 @@ export class ClientsComponent implements OnInit {
     this.selectedUser = client; 
     this.saveDialog.style.display = 'block'
 
-    console.log(client)
-
   }
   onUpdateClient(){
-
-    console.log(this.selectedUser)
 
     this.loading = true; 
     let newClient : Client = this.createForm.value;
@@ -138,17 +136,19 @@ export class ClientsComponent implements OnInit {
       this.clients[index] = response;
       this.message = "¡Cliente actualizado exitosamente!"
     }, error => {
+      this.saveDone = true; 
+      this.loading = false; 
       this.message = "No se ha podido actualizar el cliente "+ error.error; 
     })
   }
 
-  onCloseDeleteDialog(){
-    this.deleteDialog.style.display = 'none'; 
-    this.deleteDone = false;  
-  }
   onOpenDeleteDialog(client: Client){
     this.selectedUser = client; 
     this.deleteDialog.style.display = 'block'; 
+  }
+  onCloseDeleteDialog(){
+    this.deleteDialog.style.display = 'none'; 
+    this.deleteDone = false;  
   }
   onDeleteClient(){
     this.loading = true; 
@@ -160,6 +160,8 @@ export class ClientsComponent implements OnInit {
       this.clients.splice(index, 1)
       this.message = "¡Cliente eliminado exitosamente!"
     }, error => {
+      this.deleteDone = true; 
+      this.loading = false; 
       this.message = "No se ha podido eliminar el cliente "+ error.error; 
     }) 
   }

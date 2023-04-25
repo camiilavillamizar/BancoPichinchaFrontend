@@ -26,7 +26,7 @@
             <td> {{client.state}} </td>
             <td class="actions">
 
-                <span class="material-symbols-outlined edit" (click)="onEdit(client)">
+                <span class="material-symbols-outlined edit" (click)="onOpenEditDialog(client)">
                     edit
                 </span>
                 
@@ -42,7 +42,7 @@
 <div #saveDialog id="saveDialog" class="dialog">
 
     <div class="dialog-content" *ngIf="!loading && !saveDone">
-      <span class="close" (click)="onCloseDialog()">&times;</span>
+      <span class="close" (click)="onCloseSaveDialog()">&times;</span>
       <h1 *ngIf="formType == 'post'">Crear Cliente</h1>
       <h1 *ngIf="formType == 'put'">Actualizar Cliente</h1>
 
@@ -82,8 +82,8 @@
             <option [value]="false">FALSE</option>
         </select>
 
-        <button (click)="onSaveClient()" class="submitButton" *ngIf="formType == 'post'">CREAR</button>
-        <button (click)="onUpdateClient()" class="submitButton" *ngIf="formType == 'put'">ACTUALIZAR</button>
+        <button (click)="onSaveClient()" class="submitButton" *ngIf="formType == 'post'" [disabled]="!createForm.valid">CREAR</button>
+        <button (click)="onUpdateClient()" class="submitButton" *ngIf="formType == 'put'" [disabled]="!createForm.valid">ACTUALIZAR</button>
     </form>
     </div>
 
@@ -92,7 +92,7 @@
     </div>
   
     <div class="dialog-content" *ngIf="saveDone">
-        <span class="close" (click)="onCloseDialog()">&times;</span>
+        <span class="close" (click)="onCloseSaveDialog()">&times;</span>
         <h2> {{message}} </h2>
     </div>
 </div>

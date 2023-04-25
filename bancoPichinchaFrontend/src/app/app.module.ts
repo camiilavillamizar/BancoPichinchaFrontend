@@ -12,6 +12,7 @@ import { TitleSectionComponent } from './components/title-section/title-section.
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CurrencyPipe } from '@angular/common';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
