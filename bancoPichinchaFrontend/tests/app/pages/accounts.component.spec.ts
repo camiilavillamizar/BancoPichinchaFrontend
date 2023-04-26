@@ -32,10 +32,15 @@ describe('AccountsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*
+  
   test(('show table'), () => {
-    const headers = compiled.querySelectorAll('table' > 'th')
-    console.log(headers)
-    expect(headers.lenght).toBe(6)
-  }) */
+    const headers = compiled.querySelectorAll('th')
+    expect(headers.length).toBe(6)
+    expect(headers[0].innerHTML).toBe("Cliente")
+    expect(headers[1].innerHTML).toBe("Numero")
+    expect(headers[2].innerHTML).toBe("Saldo inicial")
+    expect(headers[3].innerHTML).toBe("Tipo cuenta")
+    expect(headers[4].innerHTML).toBe("Estado")
+
+  }) 
 });
