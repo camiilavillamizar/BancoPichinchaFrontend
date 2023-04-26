@@ -1,10 +1,10 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Account } from 'src/app/interfaces/account.interfaces';
-import { Transaction } from 'src/app/interfaces/transaction.interface';
-import { AccountService } from 'src/app/services/account.service';
-import { TransactionService } from 'src/app/services/transaction.service';
+import { Account } from '../../interfaces/account.interfaces';
+import { Transaction } from '../../interfaces/transaction.interface';
+import { AccountService } from '../../services/account.service';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-transactions',

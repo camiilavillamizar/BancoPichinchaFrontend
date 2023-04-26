@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from 'src/app/interfaces/client.interfaces';
-import { Report } from 'src/app/interfaces/report.interface';
-import { ClientService } from 'src/app/services/client.service';
-import { ReportService } from 'src/app/services/report.service';
+import { Client } from '../../interfaces/client.interfaces';
+import { Report } from '../../interfaces/report.interface';
+import { ClientService } from '../../services/client.service';
+import { ReportService } from '../../services/report.service';
 import * as fileSaver from 'file-saver';
 
 @Component({

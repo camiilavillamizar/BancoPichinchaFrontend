@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Client } from 'src/app/interfaces/client.interfaces';
-import { ClientService } from 'src/app/services/client.service';
+import { Client } from '../../interfaces/client.interfaces';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-clients',

@@ -2,10 +2,10 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Account } from 'src/app/interfaces/account.interfaces';
-import { Client } from 'src/app/interfaces/client.interfaces';
-import { AccountService } from 'src/app/services/account.service';
-import { ClientService } from 'src/app/services/client.service';
+import { Account } from '../../interfaces/account.interfaces';
+import { Client } from '../../interfaces/client.interfaces';
+import { AccountService } from '../../services/account.service';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-accounts',
